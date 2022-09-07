@@ -61,5 +61,6 @@ while round <= 3 and win != 1 :
         print("gj")
         win = 1
     else :
+        print("nope")
         round = round + 1
 
