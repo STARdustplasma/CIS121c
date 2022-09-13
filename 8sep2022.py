@@ -20,7 +20,7 @@ invalid = 0
 print("please enter your martial status")
 maritalstatus = str(input("input an s for single and an m for marriage: "))
 
-while maritalstatus != "m" or maritalstatus != "s" :
+while maritalstatus != "m" and maritalstatus != "s" :
     print("your answer was invalid")
     print("please try again")
     maritalstatus = str(input("input an s for single and an m for marriage: "))
