@@ -1,0 +1,11 @@
+APPLE DATA
+the mean of apples eaten is 6
+the median of apples eaten is 6.11
+
+BANANA DATA
+the mean of banana eaten is 6.0
+the median of banana eaten is 5.84
+
+STRAWBERRY DATA
+the mean of strawberry eaten is 6
+the median of strawberry eaten is 6.08
