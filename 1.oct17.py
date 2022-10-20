@@ -8,6 +8,8 @@ def randomfile(b):
     data = file.read().splitlines()
     return data
 
+data = randomfile('oct17.txt')
+
 def isolate(data) :
     temp = {}
     count100 = 0
@@ -27,7 +29,6 @@ def isolate(data) :
     }
     print(temp)
 
-data = randomfile('oct17.txt')
 isolate(data)
 
 
