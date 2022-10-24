@@ -12,9 +12,9 @@ class RoboFriend :
 
 
     def stateName(self) :
-        print(f"Hello. My name is {self.name}\n")
+        print(f"Hello. My name is {self.name}")
 
 
     def stateAge(self) :
-        print(f"I'm {self.age} years old\n")
+        print(f"I'm {self.age} years old")
 
