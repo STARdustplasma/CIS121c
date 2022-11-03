@@ -83,12 +83,13 @@ class HighTwoGame :
     def playManyGames(self, i) :
         o = 0
         p = 0
-        for j in range(i) :
+        for j in range(i+1) :
             Player.rollDice(self.player1)
             Player.rollDice(self.player2)
             print(f'{Player.listName(self.player1)} rolled a {Player.getDiceValue(self.player1)}')
             print(f'{Player.listName(self.player2)} rolled a {Player.getDiceValue(self.player2)}')
             print('')
+
 
             if Player.getDiceValue(self.player1) > Player.getDiceValue(self.player2) :
                 o += 1
@@ -107,12 +108,12 @@ class HighTwoGame :
         
 
 
+
 print("Game one:") 
 game1 = HighTwoGame( Player("Matt", Die(6), Die(10)), Player("Ashley", Die(6), Die(10)) )
 game1.playOneGame()
 
-
 print("")
 print("Game two:")
 game2 = HighTwoGame( Player("Dexter", Die(6), Die(10)), Player("Eugene", Die(6), Die(10)) )
-game2.playManyGames(3)
+game2.playOneGame()

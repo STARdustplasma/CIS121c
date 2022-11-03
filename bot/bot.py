@@ -1,23 +1,50 @@
 # This example requires the 'message_content' intent.
 
 import discord
+import responses
 
 
-intents = discord.Intents.default()
-intents.message_content = True
+async def send_message(message, user_message, is_private):
+    try:
+        response = responses.handle_response(user_message)
+        await message.author.send(response) if is_private else await message.channel.send(response)
 
-client = discord.Client(intents=intents)
+    except Exception as e:
+        print(e)
 
-@client.event
-async def on_ready():
-    print(f'We have logged in as {client.user}')
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
+def run_discord_bot():
+    TOKEN = ''
+    intents = discord.Intents.default()
+    intents.mesage_content = True
+    client = discord.Client(intents=intents)
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
 
-client.run('MTAxODY3ODUxMjc5OTk3NzU4Mw.GCGL5C.tTr4w_sC4ORPf-khmE0KwN6Ycj5lHnAaPOpEPc')
+
+    @client.event
+    async def on_ready():
+        print(f'{client.user} is now running!')
+
+    @client.event
+    async def on_message(message):
+        # Make sure bot doesn't get stuck in an infinite loop
+        if message.author == client.user:
+            return
+
+        # Get data about the user
+        username = str(message.author)
+        user_message = str(message.content)
+        channel = str(message.channel)
+
+        # Debug printing
+        print(f"{username} said: '{user_message}' ({channel})")
+
+        # If the user message contains a '?' in front of the text, it becomes a private message
+        if user_message[0] == '?':
+            user_message = user_message[1:]  # [1:] Removes the '?'
+            await send_message(message, user_message, is_private=True)
+        else:
+            await send_message(message, user_message, is_private=False)
+
+    # Remember to run your bot with your personal TOKEN
+    client.run(TOKEN)

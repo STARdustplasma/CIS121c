@@ -38,7 +38,7 @@ class highschool(student) :
         print(f'name : {self.name}')
         print(f'last name : {self.last}')
         # print(f'ssn : {self.__snn}') >> leads to an error
-        print(f'snn : {student.snn(self) ')
+        print(f'snn : {student.snn(self)} ')
         print(f'grade : {self.grade}')
 
 name = highschool('name', 'last', 11)
