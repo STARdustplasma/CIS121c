@@ -16,7 +16,13 @@ class hourlyEmployee(Employee) :
         return self.payroll
 
     def __str__(self) :
-        return f'{self.name} makes {self.calculate_payroll()}'
+        print('=== Hourly Info ===')
+        print(f'Employee Name: {self.name}')
+        print(f'Employee ID: {self.id}')
+        print(f'Employee Hourly wage: {self.wage}')
+        print(f'Employee Hours per week: {self.hours}')
+        print(f'Employee Yearly Salary: {self.calculate_payroll()}')
+        return '======================='
 
 
 class salaryEmployee(Employee) :
@@ -29,7 +35,12 @@ class salaryEmployee(Employee) :
         return self.payroll
 
     def __str__(self) :
-        return f'{self.name} makes {self.calculate_payroll()}'
+        print('=== Salary Info ===')
+        print(f'Employee Name: {self.name}')
+        print(f'Employee ID: {self.id}')
+        print(f'Employee weekly Salary: {self.salary}')
+        print(f'Employee Yearly Salary: {self.calculate_payroll()}')
+        return '======================='
         
 
 
@@ -44,23 +55,38 @@ class commissionEmployee(salaryEmployee) :
         return self.payroll
 
     def __str__(self) :
-        return f'{self.name} makes {self.calculate_payroll()}'
-        
+        print('=== Commission Info ===')
+        print(f'Employee Name: {self.name}')
+        print(f'Employee ID: {self.id}')
+        print(f'Employee weekly Salary: {self.salary}')
+        print(f'Employee Comission Fee: {self.fee}')
+        print(f'Employee Comission Count: {self.commissions}')
+        print(f'Employee Yearly Salary: {self.calculate_payroll()}')
+        return '======================='
 
+        
 
 
 class payrollInterface :
-    def calculate() :
+    def calculate_sal() :
         employee1 = salaryEmployee('sally',123475689, 1200)
-        employee2 = hourlyEmployee('howard', 12358976, 12, 20)
-        employee3 = commissionEmployee('cammy', 123465789,1200,200,4)
-
-        print('======')
         print(employee1)
+        return ''
+
+    def calculate_hour() :
+        employee2 = hourlyEmployee('howard', 12358976, 12, 20)
         print(employee2)
+        return ''
+
+    def calculate_com() :
+        employee3 = commissionEmployee('cammy', 123465789,1200,200,4)
         print(employee3)
-        print('======')
+        return ''
+        
+
         
 
 complete = payrollInterface
-complete.calculate()
+# complete.calculate_sal()
+# complete.calculate_hour()
+complete.calculate_com()
