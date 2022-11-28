@@ -1,4 +1,3 @@
-# This example requires the 'message_content' intent.
 
 import discord
 import responses
@@ -23,29 +22,34 @@ def run_discord_bot():
 
     @client.event
     async def on_ready():
-        print(f'{client.user} is now running!')
+        file = open('names.txt','r')
+        print(f'{client.user} is now running')
+        
+
 
     @client.event
     async def on_message(message):
-        # Make sure bot doesn't get stuck in an infinite loop
+        # makes sure the bot doesnt respond to itself
         if message.author == client.user:
             return
 
-        # Get data about the user
+        # user data
         username = str(message.author)
         user_message = str(message.content)
         channel = str(message.channel)
 
-        # Debug printing
+        # audit log
         print(f"{username} said: '{user_message}' ({channel})")
 
-        # If the user message contains a '?' in front of the text, it becomes a private message
+        # if the message has a '?' it becomes a dm
         if user_message[0] == '?':
             user_message = user_message[1:]  # [1:] Removes the '?'
             await send_message(message, user_message, is_private=True)
         else:
             await send_message(message, user_message, is_private=False)
     
+
+
 
 
     client.run(TOKEN)

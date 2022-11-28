@@ -6,13 +6,12 @@ def handle_response(message) -> str:
         return 'Hey there!'
 
     if p_message == 'roll':
-        return str(random.randint(1, 6))
+        return 'no'
 
-    if p_message == '!help':
-        return "`This is a help message that you can modify.`"
-        
-    if p_message == '[register]':
-        
-        name = p_message
+    if p_message == 'help':
+        return "helping"
 
-        return "`something something.`"
+    if user_message[0:8] == '!register':
+            user_message = user_message[9:]
+            name = user_message
+    return f"something something {name}"
